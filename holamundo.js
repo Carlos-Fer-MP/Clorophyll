@@ -11,6 +11,9 @@
  });
 
  app.listen(port, () => {
+     
+     /*Esta es la unica parte que modifique para hacer pruebas en mi equipo con mi apache,
+     cambie la ruta paso de http://localhost:${port} a localhost://${port}*/
 
      console.log(`Example app listening at localhost://${port}`)
 
