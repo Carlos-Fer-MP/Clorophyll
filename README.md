@@ -2,7 +2,7 @@
 
 
 
-Memoria: https://github.com/CRojasFer/Proyecto/blob/master/memoria.md
+Memoria: https://github.com/CRojasFer/Proyecto/blob/main/memoria/Memoria.md
 
 
 Sitio web: Proximamente agregare el link al sitio aquí.
