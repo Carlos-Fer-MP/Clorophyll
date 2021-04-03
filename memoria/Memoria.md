@@ -9,8 +9,9 @@
     
     Selección de Tecnologias.
     Diagrama de Gantt. 
-    Diseño de esquemas (Use Case etc...).
-    Construción.
+    Diseño.
+    Codificación.
+    Pruebas.
      
   ### Conclusiones.
   ### Integracion de modulos dentro del proyecto.  
@@ -21,12 +22,17 @@
 
  
  
- -  ### Requisitos:
+  ### Requisitos:
 
      I.Req: Crear una Base de Datos para almacenar los datos necesarios.
+
      II.Req: Crear un sistema de autentificación de usuarios.
+     
      III.Req: Añadir un usuario admin.
+     
      IV.Req: Implementar imagenes e información de los items.
+     
      V.Req: Agregar un sistema de carrito de compra o algo parecido.
+     
      VI.Req: Dejar constancia de que no puedo vender productos.
 
