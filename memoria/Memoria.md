@@ -5,11 +5,14 @@
 # Tabla de Contenidos
 
 - [Introducción](#introducción)
+- [Planificación Temporal](#planificación_temporal)
 - [Objetivos](#objetivos)
+  - [Tecnologias Seleccionadas](#tecnologias_seleccionadas)
+    - [Lenguajes](#lenguajes)  
+    - [Front-End](#front-end)  
+    - [Back-End](#back-end)  
   - [Requisitos](#requisitos)
 - [Desarrollo](#desarrollo)
-  - [Selección de Tecnologias](#selección_de_tecnologias)
-  - [Diagrama de Gantt](#diagrama_de_gantt)
   - [Diseño](#diseño)
   - [Codificación](#codificación)
   - [Pruebas](#pruebas)
@@ -21,16 +24,31 @@
 
 ## Introducción
 
+## PLaificación Temporal
+
+ 
 
 ## Objetivos
 
 ### Tecnologias seleccionadas
- 
+
+  Las Tecnologuias en este proyecto, han sido seleccionadas por medio de un analisis y un razonamiento basico tratando de utilizar lenguajes utilizados u aprendidos a lo largo de los dos años de formación.
+
+  Las debidas explicaciónes sobre ello, se han partido en tres secciones.
+
+#### Lenguajes:
+
+#### Fornt-End:
+
+#### Back-End:
+
+
+
 ### Requisitos:
 ```
-I.Req: Ha de existir un usuario "root" que seencarge de administrar la modificación, eliminación y actualización dproductos y pedidos.
+I.Req: Ha de existir un usuario administrador que se encarge de la modificación, eliminación y agrgación de productos y pedidos.
 
-II.Req: Aparte del usuario de administración, también existirán otros dos tiposs, registrado y anonimo.
+II.Req: Aparte del usuario administrador, también existirán otros dos tiposs, registrado y anonimo.
 
 III.Req: El usuario anonimo solo podrá accerder a las funciones basicas de la paguina pero en el momneto de intentar realizar un pedido o agregar productos al carrito, se les demandara que se registren para continuar.
 
@@ -52,9 +70,8 @@ XI.Req: La función de carrito de compra nos mostrará el numero de productos qu
 ```
 ## Desarrollo
 
-### Diagrama de Gantt
 
-CR: esta echo pero e tenido problemas con el sitio.
+
 
 ### Analisis
 
