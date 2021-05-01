@@ -32,9 +32,9 @@
 
 ### Tecnologias seleccionadas
 
-  Las Tecnologuias en este proyecto, han sido seleccionadas por medio de un analisis y un razonamiento basico tratando de utilizar lenguajes utilizados u aprendidos a lo largo de los dos años de formación.
+Las Tecnologuias en este proyecto, han sido seleccionadas por medio de un analisis y un razonamiento basico tratando de utilizar lenguajes utilizados o aprendidos a lo largo de los dos años de formación.
 
-  Las debidas explicaciónes sobre ello, se han partido en tres secciones.
+Las debidas explicaciónes sobre ello, se han partido en tres secciones.
 
 #### Lenguajes
 
@@ -52,11 +52,11 @@ En este caso los lenguajes seleccionados has sido escogidos en base a las experi
 
 Los lenguajes seleccionados son: 
 
-Javascript: Un lenguaje orientado a objetos basado en java, muy utilizado.
+Javascript: Es un lenguaje orientado a objetos basado en java el cual se ha impartido en este ultimo año, es un lenguaje muy utilizado de muchas formas distintas, permite el uso de funcionalidades asyncronas utilizando conceptos como el event loop, y es un lenguaje con el cual se puede trabajar tanto en *front-end* como en *back-end* haciendo de el una opción muy interesante y completa para cualquier proyecto.
 
 HTML/CSS: Los lenguajes de maquetación y estilos para paguinas web los cuales resultan imprescindibles a la hora de diseñar una paguina u aplicación web.
 
-Estructura Mongodb: La estructura de bases de datos de mongodb, esto en concreto no se dió en clase.
+Estructura Mongodb: La estructura de bases de datos de mongodb en concreto no se dió en clase, es una estructura de bases de datos que se compone por esquemas la cual se configura de una forma similar a un fichero .JSON, la razón por la que se escogio este tipo de base de datos fue porque a la hora de investigar daban buenas opiniones sobre ello y aparte resulta muy interesante/intrigante aprender un nuevo sistema de bases de datos.
 
 Una vez explicados los motivos de estos lenguajes, pasamos a explicitar que esta destinado a que parte del desarrollo.
 
@@ -66,20 +66,22 @@ Para el Front-End nada más iniciar la busqueda con total facilidad se puede ver
 
 Y en lo que se refiere a frameworks de front-end sobre el lenguaje seleccionado, los más nombrados o con más fama són:
 
-Angular.js
-Vue.js
-React.js
-Svelte.js
+*Angular.js*
+*Vue.js*
+*React.js*
+*Svelte.js*
 
 Cada uno tiene sus puntos fuertes y sus puntos debiles, algunos son más querido por la comunidad y otros simplemente odiados como Angular.js, pero cada uno de ellos merecen la pena ser utilizados en concreto svelte es el más "joven" de los cuatro pero sus ratios de aceptación por la comunidad y uso son muy elevados para lo que se esperaria de un framework desarrollado hace escasos 4 años.
 
 En este caso se selecciono Vue.js ya no solo por su capacidad de escalado que en ciertos sentidos puedes ser superior a la de sus compañeros, si no que tambien la curva de dificultad en respectiva a las otras conjunto a svelte es la menos "empinada" por así decirlo.
 
-La versión en concreto que se usa es la de @Vue/cli: 4.5.12, que es un tipo de version de Vue.js la cual implementa ... 
+La versión en concreto que se usa es la de @Vue/cli: 4.5.12, que es un tipo de version de Vue.js la cual implementa una larga serie de funcionalidades, la más notoria es que utiliza *webpack* para la construcción de la estructura de paquetes en nuestro repositorio.
+
+Una vez explicado el framework a utilizar ya no queda mucho más por explicar en esta parte, así que damos paso a el apartado de back-en.
 
 #### Back-End
 
-
+Para el back-end  
 
 ### Requisitos
 
@@ -124,6 +126,16 @@ XI.Req: La función de carrito de compra nos mostrará el numero de productos qu
 ## Integración de modulos dentro del proyecto
 
 ## Glosario
+
+### Terminos Usados:
+
+front-end:
+back-end:
+Webpack:
+Angular.js
+Vue.js
+React.js
+Svelte.js
 
 ## Bibliografia
 
