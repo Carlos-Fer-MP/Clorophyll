@@ -39,7 +39,7 @@
  app.listen(port);
  
  //Creamos la conexión a la BD.
- mongoose.connect(process.env.DB_Conection,{useNewUrlParser: true}, () => {
+ mongoose.connect(process.env.DB_Conection,{ useUnifiedTopology: true }, () => {
 
    console.log('Conected to db');
 

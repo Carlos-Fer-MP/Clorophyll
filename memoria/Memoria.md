@@ -81,7 +81,15 @@ Una vez explicado el framework a utilizar ya no queda mucho más por explicar en
 
 #### Back-End
 
-Para el back-end  
+Para el back-end en este caso no exsitian muchas opciones o vias alternas, con javascript las opciones para back-end son utilizando *node.js* y *express*, integrando *mongodb* como base de datos.
+
+*Node.js* es un tipo de runtime environment o medio ambiente de tiempo en ejecución que basicamente lo que permite en resumidas cuentas hacer, es utilizar y ejecutar javascript sin un "navegador" de por medio.
+
+*Express*: Un framework de Node.js que permite construir apis.
+
+*Mongodb*: El sistema de Base de Datos de Mongo esta basado en JavaScript permite crear bases de datos atraves de esquemas.  
+
+Una vez explicadas las elecciones proseguimos con los requisitos.
 
 ### Requisitos
 
@@ -136,6 +144,9 @@ Angular.js
 Vue.js
 React.js
 Svelte.js
+Mongodb:
+Express:
+Node.js:
 
 ## Bibliografia
 
