@@ -24,6 +24,13 @@
 
 ## Introducción
 
+
+
+
+
+
+
+
 ## PLaificación Temporal
 
  ![imagen](./img/Gantt-Chart.png)
