@@ -20,4 +20,5 @@
     router.delete('/', productos.deleteAll);
 
     app.use('/api/productos', router);
+    
  };

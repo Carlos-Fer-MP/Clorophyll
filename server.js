@@ -14,11 +14,11 @@
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
-  app.get('/', (req, res) => {
+  /*app.get('/', (req, res) => {
 
       res.json({message: 'holu'});  
 
-  });
+  });*/
 
   require('./app/routes/routes.js')(app);
 
