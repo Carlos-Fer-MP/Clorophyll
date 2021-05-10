@@ -24,11 +24,11 @@
 
 <script>
 
-  export default {
+export default {
 
-    name: 'app'
+  name: 'app'
 
-  };
+}
 
 </script>
 
