@@ -25,7 +25,7 @@
   require('./app/routes/auth.routes')(app);
   require('./app/routes/user.routes')(app);
 
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 8081;
 
   app.listen(port, () => {
 
