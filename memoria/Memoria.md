@@ -117,7 +117,7 @@ VII.Req: Los usuarios no podrán pedir más de 3productos.
 
 VIII.Req: Solo se les permitira a los usuarios realizarun pedido, hasta que este no sea entregado no se lespermitira realizar otro.
 
-IX.Req: Dejar constancia de que no puedo venderproductos.
+IX.Req: Dejar constancia de que no puedo vender productos.
 
 X.Req: Los productos tendrán un tipo de etiqueta o tag que los identifique.
 
@@ -126,7 +126,19 @@ XI.Req: La función de carrito de compra nos mostrará el numero de productos qu
 
 ## Desarrollo
 
-### Analisis
+En este apartado se expondran los distintos procedimientos que se llevaron acabo a la hora de desarrollar el proyecto.
+
+A la hora del desarrollo, se tuvieron en cuenta los distintos apartados:
+
+Un primer paso inicial, "Analisis" llevado acabo en el apartado de **Tecnologias Saleccionadas**, donde de forma extensa se explican los motivos o razones por las cuales se han seleccionado los diferentes tipos de tecnologias.
+
+Una vez terminada la fase de Analisis comienza el apartado de **Diseño** donde se expondran los esquemas, "bocetos" y ideas principales sobre las que se desarrolla proyecto.
+
+Al terminar con el apartado de diseño comenzará la **Codificación**, que es el proceso donde comienza la edificación o construcción proyecto.
+
+Y para finalizar, un apartado sobre **Pruebas** donde se expondran las difrentes pruebas o "tests" que han sido realizados, mediante el desarrolllo del proyecto.
+
+
 
 ### Diseño
 
