@@ -3,6 +3,7 @@
     <header class="jumbotron">
       <h3>{{ content }}</h3>
     </header>
+    <router-view></router-view>
   </div>
 </template>
 

@@ -38,6 +38,7 @@
       <button class="btn btn-success" @click="newProducto">Add</button>
 
     </div>
+    <router-view></router-view>
   </div>
 
 </template>

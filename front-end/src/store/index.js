@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import { auth } from './auth.module'
 
-export default createStore({
+/*export default createStore({
   state: {
   },
   mutations: {
@@ -10,7 +10,7 @@ export default createStore({
   },
   modules: {
   }
-})
+})*/
 
  const store = createStore({
 

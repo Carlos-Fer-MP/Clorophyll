@@ -50,6 +50,7 @@
   <div v-else>
     <br />
     <p>Please click on a Tutorial...</p>
+    <router-view></router-view>
   </div>
 </template>
 <script>

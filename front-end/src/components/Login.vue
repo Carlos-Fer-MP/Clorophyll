@@ -35,6 +35,7 @@
         </div>
       </Form>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 

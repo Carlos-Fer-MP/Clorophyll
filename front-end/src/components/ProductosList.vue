@@ -50,6 +50,7 @@
         <p>Please click on a Tutorial...</p>
       </div>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
