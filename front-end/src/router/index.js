@@ -3,9 +3,9 @@ import Home from '../components/Home.vue'
 import Login from '../components/Login.vue'
 import Register from '../components/Register.vue'
 
-const Profile = () => import('')
-const BoardUser = () => import('')
-const BoardAdmin = () => import('')
+const Profile = () => import('../components/Profile.vue')
+const BoardUser = () => import('../components/BroadUser.vue')
+const BoardAdmin = () => import('../components/BroadAdmin.vue')
 
 /*
 const routes = [
@@ -78,20 +78,20 @@ const routes = [
     path: '/',
     alias: '/productos',
     name: 'productos',
-    component: () => import('./components/ProductosList.vue')
+    component: () => import('../components/ProductosList.vue')
 
   },
   {
 
     path: '/productos/:id',
     name: 'detalles-productos',
-    component: () => import('./components/Producto.vue')
+    component: () => import('../components/Producto.vue')
 
   },
   {
     path: '/añadir',
     name: 'añadir',
-    component: () => import('./components/AddProducto.vue')
+    component: () => import('../components/AddProducto.vue')
 
   }
 
