@@ -2,13 +2,13 @@
   <div class="list row">
     <div class="col-md-8">
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Search by title"
-          v-model="title"/>
+        <input type="text" class="form-control" placeholder="Busqueda por Nombre"
+          v-model="item"/>
         <div class="input-group-append">
           <button class="btn btn-outline-secondary" type="button"
-            @click="searchTitle"
+            @click="searchItem"
           >
-            Search
+            Busqueda
           </button>
         </div>
       </div>
@@ -18,23 +18,23 @@
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
-          v-for="(tutorial, index) in tutorials"
+          v-for="(productos, index) in productos"
           :key="index"
-          @click="setActiveTutorial(tutorial, index)"
+          @click="setActiveTutorial(productos, index)"
         >
-          {{ tutorial.title }}
+          {{ productos.item }}
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllTutorials">
-        Remove All
+      <button class="m-3 btn btn-sm btn-danger" @click="removeAllProductos">
+        Eliminarlos a todos
       </button>
     </div>
     <div class="col-md-6">
       <div v-if="currentTutorial">
         <h4>Tutorial</h4>
         <div>
-          <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+          <label><strong>Item:</strong></label> {{ currentTutorial.title }}
         </div>
         <div>
           <label><strong>Description:</strong></label> {{ currentTutorial.description }}
@@ -43,11 +43,11 @@
           <label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
         </div>
 
-        <router-link :to="'/tutorials/' + currentTutorial.id" class="badge badge-warning">Edit</router-link>
+        <router-link :to="'/productos/' + currentProducto.id" class="badge badge-warning">Editar</router-link>
       </div>
       <div v-else>
         <br />
-        <p>Please click on a Tutorial...</p>
+        <p>Selecciona un Producto</p>
       </div>
     </div>
     <router-view></router-view>
@@ -101,7 +101,7 @@ export default {
           console.log(e)
         })
     },
-    searchTitle () {
+    searchItem () {
       DataService.findByItem(this.item)
         .then(response => {
           this.productos = response.data

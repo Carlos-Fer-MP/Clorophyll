@@ -80,42 +80,30 @@ export default {
   name: 'app',
   computed: {
 
-    currentUser(){
-
-      return this.$store.state.auth.user;
-
-    },     
-    showAdminBoard(){
-
-      if(this.currentUser && this.currentUser['roles']){
-
-         return this.currentUser['roles'].includes('ROLE_ADMIN');
-
-      }
-      return false;
-
+    currentUser () {
+      return this.$store.state.auth.user
     },
-    showUserBoard(){
-
-      if(this.currentUser && this.currentUser['roles']){
-
-          return this.currentUser['roles'].includes('ROLE_USER');
-
+    showAdminBoard () {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_ADMIN')
       }
-      return false;
-
-    }   
+      return false
+    },
+    showUserBoard () {
+      if (this.currentUser && this.currentUser.roles) {
+        return this.currentUser.roles.includes('ROLE_USER')
+      }
+      return false
+    }
   },
   methods: {
-    
-    logOut(){
 
-      this.$store.dispatch('auth/logout');
-      this.$router.push('/login');
-
+    logOut () {
+      this.$store.dispatch('auth/logout')
+      this.$router.push('/login')
     }
   }
-};
+}
 
 </script>
 

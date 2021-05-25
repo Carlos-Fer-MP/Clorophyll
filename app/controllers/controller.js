@@ -47,7 +47,7 @@ const Productos = db.Productos;
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving tutorials."
+            err.message || "Un error a ocurrido al buscar el producto con la id."
         });
       }); 
  
@@ -59,13 +59,13 @@ const Productos = db.Productos;
     Productos.findById(id)
       .then(data => {
         if (!data)
-          res.status(404).send({ message: "Not found Tutorial with id " + id });
+          res.status(404).send({ message: "Error al buscar el producto con la id " + id });
         else res.send(data);
       })
       .catch(err => {
         res
           .status(500)
-          .send({ message: "Error retrieving Tutorial with id=" + id });
+          .send({ message: "Error al buscar el producto con la id=" + id });
       });
  
  };
@@ -73,7 +73,7 @@ const Productos = db.Productos;
     
     if (!req.body) {
         return res.status(400).send({
-          message: "Data to update can not be empty!"
+          message: "Los datos a actualizar no pueden estar vacios!"
         });
       }
     
@@ -83,13 +83,13 @@ const Productos = db.Productos;
       .then(data => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found!`
+            message: `No se a podido actualizar el producto con la id=${id}. Quiza no se a podido emncontrar el producto`
           });
-        } else res.send({ message: "Tutorial was updated successfully." });
+        } else res.send({ message: "El producto ha sido actualizado con exito." });
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Tutorial with id=" + id
+          message: "Error actualizando el Producto con la id=" + id
         });
       });
  
@@ -102,17 +102,17 @@ const Productos = db.Productos;
       .then(data => {
         if (!data) {
           res.status(404).send({
-            message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+            message: `No se a podido eliminar el producto con la id=${id}. Quiza no se a podido emncontrar el producto`
           });
         } else {
           res.send({
-            message: "Tutorial was deleted successfully!"
+            message: "El producto ha sido eliminados!"
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Tutorial with id=" + id
+          message: "No se a podido eliminar el producto con la id=" + id
         });
       });
  
@@ -122,13 +122,13 @@ const Productos = db.Productos;
     Productos.deleteMany({})
     .then(data => {
       res.send({
-        message: `${data.deletedCount} Tutorials were deleted successfully!`
+        message: `${data.deletedCount} Los productos han sido eliminados`
       });
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while removing all tutorials."
+          err.message || "A ocurrido un error al eliminar el producto."
       });
     });
      

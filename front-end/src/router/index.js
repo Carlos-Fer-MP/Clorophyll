@@ -30,47 +30,47 @@ const routes = [
 
     path: '/',
     name: 'home',
-    component: Home,
+    component: Home
 
   },
 
   {
 
     path: '/home',
-    component: Home,
+    component: Home
 
   },
   {
 
     path: '/login',
-    component: Login,
-    
+    component: Login
+
   },
   {
 
     path: '/register',
-    component: Register,
+    component: Register
 
   },
   {
 
     path: '/profile',
     name: 'profile',
-    component: Profile,    
+    component: Profile
 
   },
   {
 
     path: '/admin',
     name: 'admin',
-    component: BoardAdmin,
+    component: BoardAdmin
 
   },
   {
 
     path: '/user',
     name: 'user',
-    component: BoardUser,
+    component: BoardUser
 
   },
   {
@@ -97,31 +97,23 @@ const routes = [
 
 ]
 
-
 const router = createRouter({
 
   history: createWebHashHistory(),
   routes
-  
+
 })
 
 router.beforeEach((to, from, next) => {
+  const publicPages = ['/login', '/register', '/home']
+  const authRequired = !publicPages.includes(to.path)
+  const loggedIn = localStorage.getItem('user')
 
-  const publicPages = ['/login', '/register', '/home'];
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('user');
-
-  if(authRequired && !loggedIn){
-
-    next('/login');
-
-  }else{
-
-    next();
-
+  if (authRequired && !loggedIn) {
+    next('/login')
+  } else {
+    next()
   }
-
-});
-
+})
 
 export default router

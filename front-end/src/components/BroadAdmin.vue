@@ -11,25 +11,25 @@
 import UserService from '../services/user-service'
 export default {
   name: 'Admin',
-   data(){
-      return {
+  data () {
+    return {
 
-       content: ''
+      content: ''
 
-      };
-    },
-    mounted() {
-      UserService.getAdminBoard().then(
-        (response) => {
-          this.content = response.data;
-        },
-        (error) => {
-          this.content = (error.response && error.response.data && error.response.data.message) ||
+    }
+  },
+  mounted () {
+    UserService.getAdminBoard().then(
+      (response) => {
+        this.content = response.data
+      },
+      (error) => {
+        this.content = (error.response && error.response.data && error.response.data.message) ||
           error.message ||
-          error.toString();
-        }
-      );
-    },
-};
+          error.toString()
+      }
+    )
+  }
+}
 
 </script>

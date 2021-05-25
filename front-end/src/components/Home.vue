@@ -7,39 +7,32 @@
   </div>
 </template>
 <script>
- 
- import UserService from '../services/user-service';
 
- export default {
+import UserService from '../services/user-service'
 
-    name: 'Home',
-    data(){
+export default {
 
-        return{
+  name: 'Home',
+  data () {
+    return {
 
-            content: '',
+      content: ''
 
-        };
+    }
+  },
+  mounted () {
+    UserService.getPublicContent().then(
 
-    },
-    mounted() {
-       UserService.getPublicContent().then(
+      (response) => {
+        this.content = response.data
+      },
+      (error) => {
+        this.content = (error.response && error.response.data && error.response.data.message) ||
+                 error.message || error.toString()
+      }
 
-           (response) => {
+    )
+  }
 
-               this.content = response.data;
-
-           },
-           (error) => {
-
-               this.content = (erro.response && error.response.data && error.response.data.message) ||
-                 error.message || error.toString();
-               
-           }
-
-        ); 
-       
-    },
-    
- };
+}
 </script>

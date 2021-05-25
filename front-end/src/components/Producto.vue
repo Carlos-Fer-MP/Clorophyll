@@ -1,55 +1,42 @@
 <template>
-  <div v-if="currentTutorial" class="edit-form">
-    <h4>Tutorial</h4>
+  <div v-if="currentProducto" class="edit-form">
+    <h4>Producto</h4>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Producto</label>
         <input type="text" class="form-control" id="title"
-          v-model="currentTutorial.title"
+          v-model="currentProducto.item"
         />
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
+        <label for="description">Descripción</label>
         <input type="text" class="form-control" id="description"
-          v-model="currentTutorial.description"
+          v-model="currentProducto.description"
         />
       </div>
 
       <div class="form-group">
         <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
+        {{ currentProducto.published ? "Published" : "Pending" }}
       </div>
     </form>
-
-    <button class="badge badge-primary mr-2"
-      v-if="currentTutorial.published"
-      @click="updatePublished(false)"
-    >
-      UnPublish
-    </button>
-    <button v-else class="badge badge-primary mr-2"
-      @click="updatePublished(true)"
-    >
-      Publish
-    </button>
-
     <button class="badge badge-danger mr-2"
-      @click="deleteTutorial"
+      @click="deleteProducto"
     >
-      Delete
+      Eliminar
     </button>
 
     <button type="submit" class="badge badge-success"
-      @click="updateTutorial"
+      @click="updateProducto"
     >
-      Update
+      Actualizar
     </button>
     <p>{{ message }}</p>
   </div>
 
   <div v-else>
     <br />
-    <p>Please click on a Tutorial...</p>
+    <p>Seleccione el producto</p>
     <router-view></router-view>
   </div>
 </template>
@@ -85,7 +72,7 @@ export default {
       DataService.update(this.currentProducto._id, this.currentProducto)
         .then(response => {
           console.log(response.data)
-          this.message = 'The tutorial was updated successfully!'
+          this.message = 'El producto fue actualizado con exito'
         })
         .catch(e => {
           console.log(e)

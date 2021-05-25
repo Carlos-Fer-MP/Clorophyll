@@ -40,78 +40,65 @@
 </template>
 
 <script>
- 
- import {Form, Field, ErrorMessage} from 'vee-validate';
- import * as yup from 'yup';
 
- export default {
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
 
-     name: 'login',
-     components: {
+export default {
 
-         Form,
-         Field,
-         ErrorMessage,
+  name: 'login',
+  components: {
 
-     },
-    data(){
+    Form,
+    Field,
+    ErrorMessage
 
-        const schema = yup.object().shape({
+  },
+  data () {
+    const schema = yup.object().shape({
 
-            username: yup.string().required('Username is required'),
-            password: yup.string().required('Password is required'),
+      username: yup.string().required('Username is required'),
+      password: yup.string().required('Password is required')
 
-        });
-        return{
+    })
+    return {
 
-            loading: false,
-            message: '',
-            schema,
-             
-        };
-    
-    },
-    computed:{
-        
-        loggedIn(){
+      loading: false,
+      message: '',
+      schema
 
-            return this.$store.state.auth.status.loggedIn;
+    }
+  },
+  computed: {
 
+    loggedIn () {
+      return this.$store.state.auth.status.loggedIn
+    }
+  },
+  created () {
+    if (this.loggedIn) {
+      this.$router.push('/profile')
+    }
+  },
+  methods: {
+
+    handledLogin (user) {
+      this.loading = true
+
+      this.$store.dispatch('auth/login', user).then(
+
+        () => {
+          this.$router.push('/profile')
         },
-    },
-    created(){
-
-        if(this.loggedIn){
-
-            this.$router.push('/profile');
-
+        (error) => {
+          this.loading = false
+          this.message = (error.response && error.response.data && error.response.data.message) ||
+                   error.message || error.toString()
         }
-
-    },
-    methods: {
-       
-       handledLogin(user){
-
-           this.loading = true;
-
-           this.$store.dispatch('auth/login', user).then(
-
-               () => {
-
-                   this.$router.push('/profile');
-
-               },
-               (error) => {
-
-                   this.loading = false;
-                   this.message = (error.response && error.response.data && error.response.data.message) ||
-                   error.message || error.toString();
-
-               }
-           );
-       },
-    },
- };
+      )
+    }
+  }
+}
 
 </script>
 <style scoped>

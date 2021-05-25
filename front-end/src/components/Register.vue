@@ -48,101 +48,86 @@
   </div>
 </template>
 <script>
- 
- import { Form, Field, ErrorMessage } from 'vee-validate';
- import * as yup from 'yup';
 
- export default {
-     
-    name: 'Register',
-    components: {
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import * as yup from 'yup'
 
-        Form,
-        Field,
-        ErrorMessage,
+export default {
 
-    },
-    data(){
+  name: 'Register',
+  components: {
 
-        const schema = yup.object().shape({
-        
-         username: yup
-          .string()
-          .required('Username is required')
-          .min(3, 'Must be at least 3 characters')
-          .max(20, 'Must be maximun 20 characters'),
-         email: yup
-          .string()
-          .required('Email is requires')
-          .email('Email is invalid')
-          .max(50, 'Must be maximun 50 characters'),
-         password: yup
-          .string()
-          .required('Password is required')
-          .min(6, 'Must be at least 6 characters')
-          .max(40, 'Must be maximun 40 characters'),   
-        
-        });
-        return {
+    Form,
+    Field,
+    ErrorMessage
 
-            successfull: false,
-            loading: false,
-            message: '',
-            schema,
+  },
+  data () {
+    const schema = yup.object().shape({
 
-        };
-    },
-    computed: {
+      username: yup
+        .string()
+        .required('Username is required')
+        .min(3, 'Must be at least 3 characters')
+        .max(20, 'Must be maximun 20 characters'),
+      email: yup
+        .string()
+        .required('Email is requires')
+        .email('Email is invalid')
+        .max(50, 'Must be maximun 50 characters'),
+      password: yup
+        .string()
+        .required('Password is required')
+        .min(6, 'Must be at least 6 characters')
+        .max(40, 'Must be maximun 40 characters')
 
-        loggedIn(){
+    })
+    return {
 
-            return this.$store.state.auth.status.loggedIn;
+      successfull: false,
+      loading: false,
+      message: '',
+      schema
 
+    }
+  },
+  computed: {
+
+    loggedIn () {
+      return this.$store.state.auth.status.loggedIn
+    }
+  },
+  mounted () {
+    if (this.loggedIn) {
+      this.$router.push('/profile')
+    }
+  },
+  methods: {
+    handleRegister (user) {
+      this.message = ''
+      this.successfull = false
+      this.loggedIn = true
+
+      this.$store.dispatch('auth/register', user).then(
+
+        (data) => {
+          this.message = data.message
+          this.successfull = true
+          this.loading = false
         },
-    },
-    mounted() {
-        
-        if(this.loggedIn){
-
-            this.$router.push('/profile');
-
+        (error) => {
+          this.message = (error.response && error.response.data && error.response.data.message) ||
+                    error.message || error.toString()
+          this.successfull = false
+          this.loading = false
         }
 
-    },
-    methods: {
-       handleRegister(user){
+      )
+    }
 
-           this.message = '';
-           this.successfull = false;
-           this.loggedIn = true;
+  }
 
-           this.$store.dispatch('auth/register', user).then(
-               
-               (data) => {
-
-                   this.message = data.message;
-                   this.successfull = true;
-                   this.loading = false;
-
-               },
-               (error) => {
-
-                   this.message = (error.response && errot.response.data && error.response.data.message) ||
-                    error.message || error.toString();
-                   this.successfull = false;
-                   this.loading = false;
-
-               }
-
-           );
-
-       }, 
-       
-    },
-
- };
-
-
+}
 
 </script>
 <style scoped>

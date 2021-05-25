@@ -25,30 +25,23 @@
   </div>
 </template>
 <script>
- 
-    export default {
- 
-         name: 'Profile',
-         computed: {
-             
-            currentUser(){
 
-                return this.$store.state.auth.user;
+export default {
 
-            } 
+  name: 'Profile',
+  computed: {
 
-         },
-         mounted() {
-             
-             if(!this.currentUser){
+    currentUser () {
+      return this.$store.state.auth.user
+    }
 
-                 this.$router.push('/login');
+  },
+  mounted () {
+    if (!this.currentUser) {
+      this.$router.push('/login')
+    }
+  }
 
-             }
-
-         }
-
-    };
-
+}
 
 </script>

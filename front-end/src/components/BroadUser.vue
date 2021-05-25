@@ -8,40 +8,30 @@
 </template>
 <script>
 
- import UserService from '../services/user-service';
+import UserService from '../services/user-service'
 
- export default {
-     
-    name: 'User',
-    data(){
-         
-        return {
-        
-            content: '',
+export default {
 
-        };
-    },
-    mounted() {
-         
-        UserService.getUserBoard().then(
+  name: 'User',
+  data () {
+    return {
 
-            (response) => {
+      content: ''
 
-                this.content = response.data;
+    }
+  },
+  mounted () {
+    UserService.getUserBoard().then(
 
-            },
-            (err) => {
+      (response) => {
+        this.content = response.data
+      },
+      (error) => {
+        this.content = (error.response && error.response.data && error.response.data.message) ||
+                     error.message || error.toString()
+      }
 
-
-                this.content = (error.response && error.response.data && error.response.data.message) ||
-                     error.message || error.toString();
-
-
-            }
-
-
-        ); 
-
-    },
- };
+    )
+  }
+}
 </script>

@@ -1,3 +1,4 @@
+ 
  const express = require('express');
  const cors = require('cors');
  
@@ -9,22 +10,25 @@
      
   };
 
+ //Iniciamos el CORS.
   app.use(cors(corsOptions));
 
+ //Iniciamos el Body-Parseer para "parsear" las URLS. 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
   /*app.get('/', (req, res) => {
 
-      res.json({message: 'holu'});  
+      res.json({message: 'hola'});  
 
   });*/
 
-  //Declarar las rutas.
+  //Declarar las rutas creadas.
   require('./app/routes/routes.js')(app);
   require('./app/routes/auth.routes')(app);
   require('./app/routes/user.routes')(app);
 
+  //Iniciamos el puerto en el Puerto de "enviroment" o en el 8081 y luego lo dejamos "escuchado".
   const port = process.env.PORT || 8081;
 
   app.listen(port, () => {
@@ -33,6 +37,7 @@
 
   });
 
+  //Inicializamos la base de datos y los modelos usados.
   const db = require('./app/models');
   const Role = db.role;
 
@@ -43,10 +48,10 @@
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connectado a la Base de Datos!");
   })
   .catch(err => {
-    console.log("Cannot connect to the database!", err);
+    console.log("No se puede connectar a la Base de Datos!", err);
     process.exit();
   });
  
@@ -67,7 +72,7 @@
                 console.log('error',err);
 
               }
-              console.log('added user to roles collection');
+              console.log('Agregado ususario a la collección de Roles');
            });
 
            new Role({
@@ -81,7 +86,7 @@
                 console.log('error', err);
 
               }
-              console.log('added admin to roles collection');
+              console.log('Agregado administrador a la collección de Roles');
 
            });
 
