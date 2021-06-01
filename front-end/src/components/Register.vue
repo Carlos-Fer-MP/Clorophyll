@@ -9,7 +9,7 @@
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
           <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Nombre de Uaurio</label>
             <Field name="username" type="text" class="form-control" />
             <ErrorMessage name="username" class="error-feedback" />
           </div>
@@ -19,7 +19,7 @@
             <ErrorMessage name="email" class="error-feedback" />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password">Contraseña</label>
             <Field name="password" type="password" class="form-control" />
             <ErrorMessage name="password" class="error-feedback" />
           </div>
@@ -30,7 +30,7 @@
                 v-show="loading"
                 class="spinner-border spinner-border-sm"
               ></span>
-              Sign Up
+              Registrarse
             </button>
           </div>
         </div>
@@ -67,19 +67,19 @@ export default {
 
       username: yup
         .string()
-        .required('Username is required')
-        .min(3, 'Must be at least 3 characters')
-        .max(20, 'Must be maximun 20 characters'),
+        .required('El nombre de usuario es requerido')
+        .min(3, 'ha de ser de minimo 3 caracteres')
+        .max(20, 'ha de tener de maximo 20 characteres'),
       email: yup
         .string()
-        .required('Email is requires')
-        .email('Email is invalid')
-        .max(50, 'Must be maximun 50 characters'),
+        .required('Email es requerido')
+        .email('Email es invalido')
+        .max(50, 'ha de tener de maximo 50 characteres'),
       password: yup
         .string()
         .required('Password is required')
-        .min(6, 'Must be at least 6 characters')
-        .max(40, 'Must be maximun 40 characters')
+        .min(6, 'ha de ser de minimo 3 caracteres')
+        .max(40, 'ha de tener de maximo 40 characteres')
 
     })
     return {

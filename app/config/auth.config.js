@@ -1,6 +1,6 @@
 
- module.exports = {
+module.exports = {
 
-    secret: 'clorophyll-key'
+  secret: 'clorophyll-key'
 
- };
+}

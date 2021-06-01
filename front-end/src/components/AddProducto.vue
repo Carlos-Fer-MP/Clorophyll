@@ -16,26 +16,26 @@
           />
         </div>
         <div class="from-group">
-          <label for="description">Description</label>
+          <label for="precio"></label>
           <input
 
             class="form-control"
-            id="description"
+            id="precio"
             required
-            v-model="tutorial.description"
-            name="description"
+            v-model="producto.precio"
+            name="precio"
 
           />
         </div>
 
-        <button @click="saveProducto" class="btn btn-success">Submit</button>
+        <button @click="saveProducto" class="btn btn-success">Enviar</button>
 
     </div>
 
     <div v-else>
 
-      <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newProducto">Add</button>
+      <h4>Se ha enviado Correctamente</h4>
+      <button class="btn btn-success" @click="newProducto">Agregar</button>
 
     </div>
     <router-view></router-view>
@@ -63,7 +63,6 @@ export default {
     }
   },
   methods: {
-    /* Pensar */
     saveProduto () {
       var data = {
 

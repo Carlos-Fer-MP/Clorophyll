@@ -8,12 +8,12 @@
       />
       <Form @submit="handleLogin" :validation-schema="schema">
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username">Nombre de usuario</label>
           <Field name="username" type="text" class="form-control" />
           <ErrorMessage name="username" class="error-feedback" />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Contraseña</label>
           <Field name="password" type="password" class="form-control" />
           <ErrorMessage name="password" class="error-feedback" />
         </div>
@@ -57,8 +57,8 @@ export default {
   data () {
     const schema = yup.object().shape({
 
-      username: yup.string().required('Username is required'),
-      password: yup.string().required('Password is required')
+      username: yup.string().required('El nombre de usuario es requerido'),
+      password: yup.string().required('La contraseña es requerida')
 
     })
     return {
@@ -102,5 +102,25 @@ export default {
 
 </script>
 <style scoped>
+.form-control {
+  border-radius: 0%;
+  height: 50px;
+}
+.login-form-container {
+  padding: 20px;
+  box-shadow: 0px 2px 5px 2px #888888;
+}
+.btn {
+  border-radius: 0%;
+  font-weight: bold;
+  background: teal;
+  border: teal;
+}
+.btn:hover {
+  background: #00b4b4;
+}
+.btn:focus {
+  background: teal;
+}
 
 </style>

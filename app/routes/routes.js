@@ -1,24 +1,22 @@
 
- module.exports = app => {
+module.exports = app => {
+  const productos = require('../controllers/controller.js')
 
-    const productos = require('../controllers/controller.js');
+  const router = require('express').Router()
 
-    const router = require('express').Router();
+  router.post('/', productos.create)
 
-    router.post('/', productos.create);
+  router.get('/', productos.findAll)
 
-    router.get('/', productos.findAll);
+  // Encontrar uno especifico.
 
-    //Encontrar uno especifico.
+  router.get('/', productos.findOne)
 
-    router.get('/', productos.findOne);
+  router.put('/', productos.update)
 
-    router.put('/', productos.update);
+  router.delete('/', productos.delete)
 
-    router.delete('/', productos.delete);
+  router.delete('/', productos.deleteAll)
 
-    router.delete('/', productos.deleteAll);
-
-    app.use('/api/productos', router);
-    
- };
+  app.use('/api/productos', router)
+}

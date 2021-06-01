@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import { auth } from './auth.module'
+import { carrito } from './carrito'
 
 /* export default createStore({
   state: {
@@ -16,7 +17,8 @@ const store = createStore({
 
   modules: {
 
-    auth
+    auth,
+    carrito
 
   }
 

@@ -1,9 +1,6 @@
 
+module.exports = {
 
- module.exports = {
-   
-   HOST: 'localhost',
-   PORT: 27017,
-   DB: "Clorophyll"
-    
- };
+  url: 'mongodb://localhost:27017/Clorophyll/?readPreference=primary&ssl=false'
+
+}

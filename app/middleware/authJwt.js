@@ -1,123 +1,87 @@
 
- const jwt = require('jsonwebtoken');
- const config = require('../config/auth.config');
- const db = require('../models');
- const User = db.user;
- const Role = db.role;
- 
- 
- verifyToken = (req, res, next) => {
+const jwt = require('jsonwebtoken')
+const config = require('../config/auth.config')
+const db = require('../models')
+const User = db.user
+const Role = db.role
 
+verifyToken = (req, res, next) => {
+  const token = req.headers['x-access-token']
 
-    let token = req.headers['x-access-token'];
-    
-    if (!token){
-
-         return res.status(403).send({message: 'token not provided'});
-
+  if (!token) {
+    return res.status(403).send({ message: 'token not provided' })
+  }
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: 'unauthorized!' })
     }
-    jwt.verify(token, config.secret, (err, decoded) => {
+    req.userId = decoded.id
+    next()
+  })
+}
 
-        if(err){
+isAdmin = (req, res, next) => {
+  User.findById(req.userId).exec((err, user) => {
+    if (err) {
+      res.status(500).send({ message: err })
+      return
+    }
+    Role.find({
 
-            return res.status(401).send({message: 'unauthorized!'});
+      _id: { $in: user.roles }
 
+    },
+    (err, roles) => {
+      if (err) {
+        res.status(500).send({ message: err })
+        return
+      }
+      for (let i = 0; i < roles.length; i++) {
+        if (roles[i].name === 'admin') {
+          next()
+          return
         }
-        req.userId = decoded.id;
-        next();
+      }
+      res.status(403).send({ message: 'Require admin role' })
+    }
 
-    });
- };
- 
- isAdmin = (req, res, next) => {
+    )
+  })
+}
+isUser = (req, res, next) => {
+  User.findById(req.userId).exec((err, user) => {
+    if (err) {
+      res.status(500).send({ message: err })
+      return
+    }
+    Role.find(
+      {
+        _id: { $in: user.roles }
 
-
-    User.findById(req.userId).exec((err, user) => {
-
-        if(err){
-
-            res.status(500).send({message: err});
-            return;
+      },
+      (err, roles) => {
+        if (err) {
+          res.status(500).send({ message: err })
+          return
         }
-        Role.find({
-
-
-            _id: {$in: user.roles}
-
-            },
-            (err, roles) => {
-
-                if(err){
-
-                    res.status(500).send({message: err});
-                    return;
-
-                }
-                for (let i = 0; i< roles.length; i++){
-                    if (roles[i].name === 'admin'){
-
-                        next();
-                        return;
-
-                    }
-                }
-                res.status(403).send({message: 'Require admin role'});
-                return;
-            }
-            
-        );
-
-    });
-
- };
- isUser = (req, res, next) => {
-
-    User.findById(req.userId).exec((err, user) => {
-
-        if(err){
-
-            res.status(500).send({message: err});
-            return;
-        }
-        Role.find(
-          {  
-            _id: {$in: user.roles}
-
-          },
-          (err, roles) => {
-
-            if(err){
-
-                res.status(500).send({message: err});
-                return;
-
-            }
-            for(let i = 0; i< roles.length; i++){
-
-                if(roles[i].name === "usuario"){
-
-                    next();
-                    return;
-
-                }
-            }
-
-            res.status(403).send({message: 'Require User Role!'});
-            return;
-
+        for (let i = 0; i < roles.length; i++) {
+          if (roles[i].name === 'usuario') {
+            next()
+            return
           }
-        );
+        }
 
-    });
+        res.status(403).send({ message: 'Require User Role!' })
+      }
+    )
+  })
+}
 
- };
+const authJwt = {
 
- const authJwt = {
+  verifyToken,
+  isAdmin,
+  isUser
 
-    verifyToken,
-    isAdmin,
-    isUser
-
- };
- module.exports = authJwt;
-
+}
+module.exports = authJwt

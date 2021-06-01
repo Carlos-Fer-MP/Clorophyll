@@ -1,18 +1,17 @@
 
- const dbConfig = require('../config/db.config.js');
- const mongoose = require('mongoose');
- mongoose.Promise = global.Promise;
- 
- const db = {};
+const dbConfig = require('../config/db.config.js')
+const mongoose = require('mongoose')
+mongoose.Promise = global.Promise
 
- db.mongoose = mongoose;
- db.url = dbConfig.url;
- db.Productos = require('./model.js')(mongoose);   
+const db = {}
 
- db.user = require('./user.model');
- db.role = require('./role.model');
+db.mongoose = mongoose
+db.url = dbConfig.url
+db.Productos = require('./model.js')(mongoose)
 
- db.ROLES = ['user', 'admin'];
+db.user = require('./user.model')
+db.role = require('./role.model')
 
- module.exports = db;
+db.ROLES = ['user', 'admin']
 
+module.exports = db

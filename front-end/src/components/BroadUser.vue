@@ -28,7 +28,7 @@ export default {
       },
       (error) => {
         this.content = (error.response && error.response.data && error.response.data.message) ||
-                     error.message || error.toString()
+        error.message || error.toString()
       }
 
     )

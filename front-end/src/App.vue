@@ -33,22 +33,22 @@
           </router-link>
         </li>
         <li v-if="showAdminBoard" class="nav-item">
-          <router-link to="/admin" class="nav-link">Admin Board</router-link>
+          <router-link to="/admin" class="nav-link">Administrador</router-link>
         </li>
         <li class="nav-item">
-          <router-link v-if="currentUser" to="/user" class="nav-link">User</router-link>
+          <router-link v-if="currentUser" to="/user" class="nav-link">Ususario</router-link>
         </li>
       </div>
 
       <div v-if="!currentUser" class="navbar-nav ml-auto">
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
-            <font-awesome-icon icon="user-plus" /> Sign Up
+            <font-awesome-icon icon="user-plus" /> Registrarse
           </router-link>
         </li>
         <li class="nav-item">
           <router-link to="/login" class="nav-link">
-            <font-awesome-icon icon="sign-in-alt" /> Login
+            <font-awesome-icon icon="sign-in-alt" /> Entrar
           </router-link>
         </li>
       </div>
@@ -62,7 +62,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" @click.prevent="logOut">
-            <font-awesome-icon icon="sign-out-alt" /> LogOut
+            <font-awesome-icon icon="sign-out-alt" /> Salir
           </a>
         </li>
       </div>
@@ -118,7 +118,7 @@ export default {
 
 #nav {
   padding: 30px;
-
+   background-color: teal;
   a {
     font-weight: bold;
     color: #2c3e50;
@@ -128,4 +128,32 @@ export default {
     }
   }
 }
+.navbar-brand {
+  font-weight: bold;
+  font-size: 25px;
+  color: #ffffff !important;
+}
+.profile-image {
+  width: 50px;
+  border-radius: 100% !important;
+}
+.page-container {
+  padding-top: 81px;
+}
+.btn {
+  border-radius: 0%;
+  font-weight: bold;
+  background: teal;
+  border: teal;
+}
+.btn:hover {
+  background: #00b4b4;
+}
+input {
+  border-radius: 0%;
+}
+.btn:focus {
+  background: teal;
+}
+
 </style>

@@ -1,97 +1,78 @@
- 
- const express = require('express');
- const cors = require('cors');
- 
- const app = express();
 
-  var corsOptions ={
+const express = require('express')
+const cors = require('cors')
 
-    origin: "http://localhost:8081"
-     
-  };
+const app = express()
 
- //Iniciamos el CORS.
-  app.use(cors(corsOptions));
+const corsOptions = {
 
- //Iniciamos el Body-Parseer para "parsear" las URLS. 
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json());
+  origin: 'http://localhost:8081'
 
-  /*app.get('/', (req, res) => {
+}
 
-      res.json({message: 'hola'});  
+// Iniciamos el CORS.
+app.use(cors(corsOptions))
 
-  });*/
+// Iniciamos el Body-Parseer para "parsear" las URLS.
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-  //Declarar las rutas creadas.
-  require('./app/routes/routes.js')(app);
-  require('./app/routes/auth.routes')(app);
-  require('./app/routes/user.routes')(app);
+/* app.get('/', (req, res) => {
 
-  //Iniciamos el puerto en el Puerto de "enviroment" o en el 8081 y luego lo dejamos "escuchado".
-  const port = process.env.PORT || 8081;
+      res.json({message: 'hola'});
 
-  app.listen(port, () => {
+  }); */
 
-      console.log(`Server is running on port ${port}.`);
+// Declarar las rutas creadas.
+require('./app/routes/routes.js')(app)
+require('./app/routes/auth.routes')(app)
+require('./app/routes/user.routes')(app)
 
-  });
+// Iniciamos el puerto en el Puerto de "enviroment" o en el 8081 y luego lo dejamos "escuchado".
+const port = process.env.PORT || 8081
 
-  //Inicializamos la base de datos y los modelos usados.
-  const db = require('./app/models');
-  const Role = db.role;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}.`)
+})
 
+// Inicializamos la base de datos y los modelos usados.
+const db = require('./app/models')
+const Role = db.role
 
-  db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+db.mongoose
+  .connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log("Connectado a la Base de Datos!");
+    console.log('Connectado a la Base de Datos!')
   })
   .catch(err => {
-    console.log("No se puede connectar a la Base de Datos!", err);
-    process.exit();
-  });
- 
-  function initial() {
+    console.log('No se puede connectar a la Base de Datos!', err)
+    process.exit()
+  })
 
-     Role.estimatedDocumentCount((err, count) => {
+function initial () {
+  Role.estimatedDocumentCount((err, count) => {
+    if (!err && count === 0) {
+      new Role({
 
-        if(!err && count === 0){
+        name: 'user'
 
-           new Role({
-
-              name: 'user'
-
-           }).save(err => {
-
-              if(err){
-
-                console.log('error',err);
-
-              }
-              console.log('Agregado ususario a la collección de Roles');
-           });
-
-           new Role({
-
-              name: 'admin'
-
-           }).save(err => {
-
-              if(err){
-
-                console.log('error', err);
-
-              }
-              console.log('Agregado administrador a la collección de Roles');
-
-           });
-
+      }).save(err => {
+        if (err) {
+          console.log('error', err)
         }
+        console.log('Agregado ususario a la collección de Roles')
+      })
 
-     });
+      new Role({
 
-  }
+        name: 'admin'
+
+      }).save(err => {
+        if (err) {
+          console.log('error', err)
+        }
+        console.log('Agregado administrador a la collección de Roles')
+      })
+    }
+  })
+}

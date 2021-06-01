@@ -14,13 +14,13 @@
       </div>
     </div>
     <div class="col-md-6">
-      <h4>Tutorials List</h4>
+      <h4>Lista de Productos</h4>
       <ul class="list-group">
         <li class="list-group-item"
           :class="{ active: index == currentIndex }"
           v-for="(productos, index) in productos"
           :key="index"
-          @click="setActiveTutorial(productos, index)"
+          @click="setActiveProducto(productos, index)"
         >
           {{ productos.item }}
         </li>
@@ -31,16 +31,16 @@
       </button>
     </div>
     <div class="col-md-6">
-      <div v-if="currentTutorial">
+      <div v-if="currentProducto">
         <h4>Tutorial</h4>
         <div>
-          <label><strong>Item:</strong></label> {{ currentTutorial.title }}
+          <label><strong>Item:</strong></label> {{ currentProducto.title }}
         </div>
         <div>
-          <label><strong>Description:</strong></label> {{ currentTutorial.description }}
+          <label><strong>Description:</strong></label> {{ currentProducto.description }}
         </div>
         <div>
-          <label><strong>Status:</strong></label> {{ currentTutorial.published ? "Published" : "Pending" }}
+          <label><strong>Precio:</strong></label> {{ currentProducto.precio}}
         </div>
 
         <router-link :to="'/productos/' + currentProducto.id" class="badge badge-warning">Editar</router-link>

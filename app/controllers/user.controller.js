@@ -1,18 +1,12 @@
 
- exports.allAcces = (req, res) => {
+exports.allAcces = (req, res) => {
+  res.status(200).send('Contenido Publico')
+}
 
-    res.status(200).send('Contenido Publico');
+exports.usersBoard = (req, res) => {
+  res.status(200).send('Contenido del Usuario')
+}
 
- };
-
- exports.usersBoard = (req, res) => {
-
-    res.status(200).send('Contenido del Usuario');
-
- };
-
- exports.adminBoard = (req, res) => {
-
-    res.status(200).send('Contenido del Administrador');
-
- };
+exports.adminBoard = (req, res) => {
+  res.status(200).send('Contenido del Administrador')
+}

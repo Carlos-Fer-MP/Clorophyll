@@ -14,11 +14,6 @@
           v-model="currentProducto.description"
         />
       </div>
-
-      <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentProducto.published ? "Published" : "Pending" }}
-      </div>
     </form>
     <button class="badge badge-danger mr-2"
       @click="deleteProducto"
@@ -78,7 +73,7 @@ export default {
           console.log(e)
         })
     },
-    deleteTutorial () {
+    deleteProducto () {
       DataService.delete(this.currentProducto._id)
         .then(response => {
           console.log(response.data)

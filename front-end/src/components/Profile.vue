@@ -2,7 +2,7 @@
   <div class="container">
     <header class="jumbotron">
       <h3>
-        <strong>{{currentUser.username}}</strong> Profile
+        <strong>{{currentUser.username}}</strong> Perfil
       </h3>
     </header>
     <p>
@@ -17,7 +17,7 @@
       <strong>Email:</strong>
       {{currentUser.email}}
     </p>
-    <strong>Authorities:</strong>
+    <strong>Authoridades:</strong>
     <ul>
       <li v-for="role in currentUser.roles" :key="role">{{role}}</li>
     </ul>
