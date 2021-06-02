@@ -1,9 +1,10 @@
 
-const { verifySignUp } = require('../middleware')
+const verifySignUp = require('../middleware/verifySignUp')
 const controller = require('../controllers/auth.controller')
+const router = require('express').Router()
 
-module.exports = function (app) {
-  app.use(function (req, res, next) {
+module.exports = function () {
+  router.use((req, res, next) => {
     res.header(
 
       'Access-Control-Allow-Headers',
@@ -13,16 +14,6 @@ module.exports = function (app) {
     next()
   })
 
-  app.post(
-
-    '/api/auth/signup',
-    [
-      verifySignUp.checkDuplicateUsernameOrEmail,
-      verifySignUp.checkRolesExisted
-
-    ],
-    controller.signup
-
-  )
-  app.post('/api/auth/signin', controller.signin)
+  router.post('/api/auth/signup', [verifySignUp.checkDuplicateUsernameOrEmail], controller.signup)
+  router.post('/api/auth/signin', controller.signin)
 }

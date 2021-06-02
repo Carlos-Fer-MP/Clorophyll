@@ -36,10 +36,9 @@ exports.signup = (req, res) => {
           if (err) {
             res.status(500).send({ message: err })
           }
-          res.send({ message: 'User was registered successfully' })
+          res.send({ message: 'El usuario a sido registrado' })
         })
       }
-
       )
     } else {
       Role.findOne({ name: 'user' }, (err, role) => {

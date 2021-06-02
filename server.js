@@ -39,16 +39,6 @@ app.listen(port, () => {
 const db = require('./app/models')
 const Role = db.role
 
-db.mongoose
-  .connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connectado a la Base de Datos!')
-  })
-  .catch(err => {
-    console.log('No se puede connectar a la Base de Datos!', err)
-    process.exit()
-  })
-
 function initial () {
   Role.estimatedDocumentCount((err, count) => {
     if (!err && count === 0) {
@@ -76,3 +66,14 @@ function initial () {
     }
   })
 }
+
+db.mongoose
+  .connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connectado a la Base de Datos!')
+    initial()
+  })
+  .catch(err => {
+    console.log('No se puede connectar a la Base de Datos!', err)
+    process.exit()
+  })
