@@ -70,7 +70,7 @@ function initial () {
 db.mongoose
   .connect(db.url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('Connectado a la Base de Datos!')
+    console.log('Connectado a la Base de Datos!' + db.url)
     initial()
   })
   .catch(err => {

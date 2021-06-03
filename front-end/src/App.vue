@@ -1,27 +1,4 @@
-<!--template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-    <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <router-link to="/" class="navbar-brand">Clorophyll</router-link>
-      <div class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <router-link to="/tutorials" class="nav-link">Tutorials</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/add" class="nav-link">Add</router-link>
-        </li>
-      </div>
-    </nav>
 
-    <div class="container mt-3">
-      <router-view />
-    </div>
-  </div>
-</template>
--->
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
@@ -30,6 +7,11 @@
         <li class="nav-item">
           <router-link to="/home" class="nav-link">
             <font-awesome-icon icon="home" /> Home
+          </router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/productos/:id" class="nav-link">
+            <font-awesome-icon icon="leaf" /> Productos
           </router-link>
         </li>
         <li v-if="showAdminBoard" class="nav-item">
@@ -41,6 +23,11 @@
       </div>
 
       <div v-if="!currentUser" class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <router-link to="/carrito" class="nav-link">
+            <font-awesome-icon icon="shopping-cart" /> Carrito
+          </router-link>
+        </li>
         <li class="nav-item">
           <router-link to="/register" class="nav-link">
             <font-awesome-icon icon="user-plus" /> Registrarse
@@ -115,7 +102,6 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 #nav {
   padding: 30px;
    background-color: teal;
@@ -143,11 +129,11 @@ export default {
 .btn {
   border-radius: 0%;
   font-weight: bold;
-  background: teal;
-  border: teal;
+  background: #0063b4;
+  border: #0063b4;
 }
 .btn:hover {
-  background: #00b4b4;
+  background: teal;
 }
 input {
   border-radius: 0%;

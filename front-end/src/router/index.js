@@ -93,6 +93,13 @@ const routes = [
     name: 'añadir',
     component: () => import('../components/AddProducto.vue')
 
+  },
+  {
+
+    path: '/carrito',
+    name: 'carrito',
+    component: () => import('../components/addACarrito.vue')
+
   }
 
 ]
@@ -105,7 +112,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/login', '/register', '/home']
+  const publicPages = ['/login', '/register', '/home', '/productos/:id', '/carrito']
   const authRequired = !publicPages.includes(to.path)
   const loggedIn = localStorage.getItem('user')
 

@@ -91,8 +91,33 @@ export default {
 }
 </script>
 <style>
-.submit-form {
-  max-width: 300px;
-  margin: auto;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+.profile-image {
+  width: 50px;
+  border-radius: 100% !important;
+}
+.page-container {
+  padding-top: 81px;
+}
+.btn {
+  border-radius: 0%;
+  font-weight: bold;
+  background: teal;
+  border: teal;
+}
+.btn:hover {
+  background: #00b4b4;
+}
+input {
+  border-radius: 0%;
+}
+.btn:focus {
+  background: teal;
 }
 </style>
