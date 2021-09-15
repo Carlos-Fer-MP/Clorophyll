@@ -26,9 +26,9 @@
         </li>
       </ul>
 
-      <button class="m-3 btn btn-sm btn-danger" @click="removeAllProductos">
+      <!--<button class="m-3 btn btn-sm btn-danger" @click="removeAllProductos">
         Eliminarlos a todos
-      </button>
+      </button>-->
     </div>
     <div class="col-md-6">
       <div v-if="currentProducto">
